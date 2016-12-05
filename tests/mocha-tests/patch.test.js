@@ -135,4 +135,18 @@ describe('Test patch()', function() {
     expect(src.el.getAttribute('b')).to.be.equal('true');
     expect(src.el.getAttribute('c')).to.be.equal('false');
   });
+
+  it('should patch empty node', function() {
+    var t = h('div', null, '');
+    var p = h('div', { a : 'b' }, h('span', null, ''));
+
+    t.render();
+    patch(t, diff(t, p));
+    p.render();
+
+    expect(t.children.length).to.be.equal(1);
+    expect(t.children[0].tag).to.be.equal('span');
+    expect(t.props.a).to.be.equal('b');
+    expect(t.el.getAttribute('a')).to.be.equal('b');
+  });
 });
