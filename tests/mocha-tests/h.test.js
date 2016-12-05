@@ -1,3 +1,5 @@
+/* Test h() */
+
 var expect = require('chai').expect;
 var jsdom = require('mocha-jsdom');
 
