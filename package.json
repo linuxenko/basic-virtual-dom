@@ -1,0 +1,36 @@
+{
+  "name": "basic-virtual-dom",
+  "version": "0.0.1",
+  "description": "Simple virtual dom implementation",
+  "main": "index.js",
+  "directories": {
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.11.1",
+    "mocha": "^3.2.0",
+    "mocha-jsdom": "^1.1.0"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run mocha",
+    "lint": "eslint lib tests",
+    "mocha": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linuxenko/basic-virtual-dom.git"
+  },
+  "keywords": [
+    "virtual-dom",
+    "dom",
+    "virtual",
+    "dom"
+  ],
+  "author": "Svetlana Linuxenko <linuxenko@yahoo.com> (http://www.linuxenko.pro)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linuxenko/basic-virtual-dom/issues"
+  },
+  "homepage": "https://github.com/linuxenko/basic-virtual-dom#readme"
+}
