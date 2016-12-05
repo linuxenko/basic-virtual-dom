@@ -3,7 +3,7 @@
 
 [![Example](https://raw.githubusercontent.com/linuxenko/basic-virtual-dom/master/examples/misc/inspect.gif)](https://raw.githubusercontent.com/linuxenko/basic-virtual-dom/master/examples/misc/inspect.gif)
 
-Experimental implementation of the virtual dom.
+Experemental implementation of the virtual dom.
 
 ### Features
   Support of following patch types:
