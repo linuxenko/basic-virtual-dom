@@ -123,4 +123,16 @@ describe('Test patch()', function() {
     patch(src, diff(src, dst));
     expect(src.el.attributes.length).to.be.equal(0);
   });
+
+  it('should patch boolean props', function() {
+    var src = h('span', { c : true, d : 'z'}, 'hello world');
+    var dst = h('span', { b : true, c : false}, 'bye bye');
+
+    src.render();
+    expect(src.el.attributes.length).to.be.equal(2);
+    patch(src, diff(src, dst));
+    expect(src.el.attributes.length).to.be.equal(2);
+    expect(src.el.getAttribute('b')).to.be.equal('true');
+    expect(src.el.getAttribute('c')).to.be.equal('false');
+  });
 });
