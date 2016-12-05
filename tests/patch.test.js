@@ -95,7 +95,7 @@ describe('Test patch()', function() {
 
   });
 
-  it('should rendered complex tree inners equal', function() {
+  it('should complex tree inners be equal', function() {
     expect(tree1.el.innerHTML).to.be.equal(tree2.render().innerHTML);
   });
 
@@ -112,5 +112,15 @@ describe('Test patch()', function() {
     expect(src.children[0].children).to.be.equal('bye bye');
     expect(src.el.attributes['c'].value).to.be.equal('e');
     expect(src.el.attributes['d'].value).to.be.equal('z');
+  });
+
+  it('should remove some props', function() {
+    var src = h('span', { c : 'e', d : 'z'}, 'hello world');
+    var dst = h('span', null, 'bye bye');
+
+    src.render();
+    expect(src.el.attributes.length).to.be.equal(2);
+    patch(src, diff(src, dst));
+    expect(src.el.attributes.length).to.be.equal(0);
   });
 });
