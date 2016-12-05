@@ -54,8 +54,6 @@ setInterval(function() {
 ### TODO
   * style attribute support
   * implement referals
-  * event handlers
-  * test very deep trees
   * test browser support
 
 ### License
