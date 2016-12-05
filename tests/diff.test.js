@@ -9,6 +9,9 @@ var b = require('./fixtures/simple').b;
 var c = require('./fixtures/simple').c;
 var e = require('./fixtures/simple').e;
 
+var na = require('./fixtures/nested').a;
+var nb = require('./fixtures/nested').b;
+
 var PATCH_REPLACE = require('../').PATCH_REPLACE;
 
 describe('Test diff()', function() {
@@ -17,6 +20,11 @@ describe('Test diff()', function() {
   it('should create trees', function() {
     expect(a).to.be.an('object');
     expect(b).to.be.an('object');
+  });
+
+  it('should deal with empty arguments', function() {
+    expect(function() { diff(a); }).to.throw();
+    expect(function() { diff(undefined, a); }).to.throw();
   });
 
   it('should diff simple tree', function() {
@@ -55,6 +63,12 @@ describe('Test diff()', function() {
   });
 
   it('should diff complex tree', function() {
+    na.render();
+    expect(na.children[0].children.length).to.be.equal(3);
+    var diffs = diff(na, nb);
 
+    expect(diffs).to.be.an('array');
+    expect(diffs.length).to.be.equal(1);
+    expect(diffs[0].t).to.be.equal(2);
   });
 });
