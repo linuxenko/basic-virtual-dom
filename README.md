@@ -1,4 +1,5 @@
 ### Simple virtual-dom implementation
+[![Build Status](https://travis-ci.org/linuxenko/basic-virtual-dom.svg?branch=master)](https://travis-ci.org/linuxenko/basic-virtual-dom)
 
 ### Features
  
