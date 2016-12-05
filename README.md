@@ -53,7 +53,6 @@ setInterval(function() {
 ```
 ### TODO
   * style attribute support
-  * implement referals
   * test browser support
 
 ### License
