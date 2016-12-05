@@ -6,6 +6,8 @@ var a = require('../fixtures/simple').a;
 var b = require('../fixtures/simple').b;
 var c = require('../fixtures/simple').c;
 
+var h = require('../../').h;
+
 describe('Test render()', function() {
   jsdom();
 
@@ -50,5 +52,18 @@ describe('Test render()', function() {
       .to.be.instanceof(window.HTMLLIElement);
     expect(dom.childNodes[0].childNodes[2])
       .to.be.instanceof(window.HTMLLIElement);
+  });
+
+  it('should render empty text node', function() {
+    var tree = h('div', { prop1 : 'propval' }, '');
+
+    expect(function() { tree.render(); }).not.throw();
+  });
+
+  it('should set props', function() {
+    var tree = h('div', { prop1 : 'propval' }, '');
+    expect(tree.props.prop1).to.be.equal('propval');
+    tree.render();
+    expect(tree.el.getAttribute('prop1')).to.be.equal('propval');
   });
 });
