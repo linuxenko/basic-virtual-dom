@@ -100,14 +100,17 @@ describe('Test patch()', function() {
   });
 
   it('should replace root node props and text', function() {
-    var src = h('span', { a : 'b' }, 'hello world');
+    var src = h('span', null, 'hello world');
     var dst = h('span', { c : 'e', d : 'z'}, 'bye bye');
 
     src.render();
 
+    expect(src.el.attributes.length).to.be.equal(0);
+
     patch(src, diff(src, dst));
 
     expect(src.children[0].children).to.be.equal('bye bye');
+    expect(src.el.attributes['c'].value).to.be.equal('e');
+    expect(src.el.attributes['d'].value).to.be.equal('z');
   });
-
 });
