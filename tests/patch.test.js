@@ -4,6 +4,7 @@ var jsdom = require('mocha-jsdom');
 
 var diff = require('../').diff;
 var patch = require('../').patch;
+var h = require('../').h;
 
 var a = require('./fixtures/simple').a;
 var b = require('./fixtures/simple').b;
@@ -96,6 +97,17 @@ describe('Test patch()', function() {
 
   it('should rendered complex tree inners equal', function() {
     expect(tree1.el.innerHTML).to.be.equal(tree2.render().innerHTML);
+  });
+
+  it('should replace root node props and text', function() {
+    var src = h('span', { a : 'b' }, 'hello world');
+    var dst = h('span', { c : 'e', d : 'z'}, 'bye bye');
+
+    src.render();
+
+    patch(src, diff(src, dst));
+
+    expect(src.children[0].children).to.be.equal('bye bye');
   });
 
 });

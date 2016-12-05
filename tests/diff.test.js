@@ -3,6 +3,7 @@ var expect = require('chai').expect;
 var jsdom = require('mocha-jsdom');
 
 var diff = require('../').diff;
+var h = require('../').h;
 
 var a = require('./fixtures/simple').a;
 var b = require('./fixtures/simple').b;
@@ -70,5 +71,13 @@ describe('Test diff()', function() {
     expect(diffs).to.be.an('array');
     expect(diffs.length).to.be.equal(1);
     expect(diffs[0].t).to.be.equal(2);
+  });
+
+  it('should not diff root node', function() {
+    var src = h('span', null, 'hello world');
+    var dst = h('strong', null, 'bye bye');
+
+    src.render();
+    expect(function() { diff(src, dst); }).to.throw();
   });
 });
