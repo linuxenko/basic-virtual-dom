@@ -2,18 +2,18 @@ var expect = require('chai').expect;
 
 var jsdom = require('mocha-jsdom');
 
-var diff = require('../').diff;
-var h = require('../').h;
+var diff = require('../../').diff;
+var h = require('../../').h;
 
-var a = require('./fixtures/simple').a;
-var b = require('./fixtures/simple').b;
-var c = require('./fixtures/simple').c;
-var e = require('./fixtures/simple').e;
+var a = require('../fixtures/simple').a;
+var b = require('../fixtures/simple').b;
+var c = require('../fixtures/simple').c;
+var e = require('../fixtures/simple').e;
 
-var na = require('./fixtures/nested').a;
-var nb = require('./fixtures/nested').b;
+var na = require('../fixtures/nested').a;
+var nb = require('../fixtures/nested').b;
 
-var PATCH_REPLACE = require('../').PATCH_REPLACE;
+var PATCH_REPLACE = require('../../').PATCH_REPLACE;
 
 describe('Test diff()', function() {
   jsdom();

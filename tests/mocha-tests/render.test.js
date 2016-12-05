@@ -2,9 +2,9 @@ var expect = require('chai').expect;
 
 var jsdom = require('mocha-jsdom');
 
-var a = require('./fixtures/simple').a;
-var b = require('./fixtures/simple').b;
-var c = require('./fixtures/simple').c;
+var a = require('../fixtures/simple').a;
+var b = require('../fixtures/simple').b;
+var c = require('../fixtures/simple').c;
 
 describe('Test render()', function() {
   jsdom();
@@ -23,13 +23,8 @@ describe('Test render()', function() {
 
   it('shoud render DOM nodes', function() {
     var dom = a.render();
-
-    expect(dom).to.be.an('object');
     expect(dom).to.be.instanceof(window.HTMLDivElement);
-
     dom = b.render();
-
-    expect(dom).to.be.an('object');
     expect(dom).to.be.instanceof(window.HTMLDivElement);
   });
 
@@ -43,10 +38,9 @@ describe('Test render()', function() {
     var dom;
 
     expect(function() {
-      dom = require('./fixtures/nested').a.render();
+      dom = require('../fixtures/nested').a.render();
     }).not.throw();
 
-    expect(dom).to.be.an('object');
     expect(dom).to.be.instanceof(window.HTMLDivElement);
 
     expect(dom.childNodes[0]).to.be.instanceof(window.HTMLUListElement);

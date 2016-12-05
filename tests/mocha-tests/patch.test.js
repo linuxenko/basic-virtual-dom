@@ -2,21 +2,21 @@ var expect = require('chai').expect;
 
 var jsdom = require('mocha-jsdom');
 
-var diff = require('../').diff;
-var patch = require('../').patch;
-var h = require('../').h;
+var diff = require('../../').diff;
+var patch = require('../../').patch;
+var h = require('../../').h;
 
-var a = require('./fixtures/simple').a;
-var b = require('./fixtures/simple').b;
+var a = require('../fixtures/simple').a;
+var b = require('../fixtures/simple').b;
 
-var a1 = require('./fixtures/simple').a1;
-var a2 = require('./fixtures/simple').a2;
+var a1 = require('../fixtures/simple').a1;
+var a2 = require('../fixtures/simple').a2;
 
-var f  = require('./fixtures/simple').f;
-var f1 = require('./fixtures/simple').f1;
+var f  = require('../fixtures/simple').f;
+var f1 = require('../fixtures/simple').f1;
 
-var tree1 = require('./fixtures/basic').tree1;
-var tree2 = require('./fixtures/basic').tree2;
+var tree1 = require('../fixtures/basic').tree1;
+var tree2 = require('../fixtures/basic').tree2;
 
 describe('Test patch()', function() {
   jsdom();

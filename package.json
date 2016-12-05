@@ -15,10 +15,25 @@
     "nyc": "^10.0.0"
   },
   "scripts": {
-    "test": "npm run lint && npm run mocha",
+    "test" : "npm run ci",
+    "mocha": "mocha --ui bdd tests/mocha-tests",
     "lint": "eslint lib tests",
-    "mocha": "mocha tests",
-    "cov": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "ci": "npm run lint && npm run mocha",
+    "cov": "nyc npm run ci && nyc report --reporter=text-lcov | coveralls"
+  },
+  "testling": {
+    "harness": "mocha-bdd",
+    "files": "tests/mocha-tests/*.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
   },
   "repository": {
     "type": "git",

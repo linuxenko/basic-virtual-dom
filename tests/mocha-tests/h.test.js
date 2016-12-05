@@ -1,8 +1,8 @@
 var expect = require('chai').expect;
 var jsdom = require('mocha-jsdom');
 
-var a = require('./fixtures/simple').a;
-var d = require('./fixtures/simple').d;
+var a = require('../fixtures/simple').a;
+var d = require('../fixtures/simple').d;
 
 describe('Test h()', function() {
   jsdom();
@@ -38,7 +38,7 @@ describe('Test h()', function() {
     var nested;
 
     expect(function() {
-      nested = require('./fixtures/nested').a;
+      nested = require('../fixtures/nested').a;
     }).not.to.throw();
 
     expect(nested.tag).to.be.equal('div');
