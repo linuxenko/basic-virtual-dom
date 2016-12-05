@@ -47,7 +47,7 @@ function countDown(){
 
 /** @jsx h */
 
-import {h, patch, diff} from '../../';
+import {h, patch, diff} from '../../../';
 
 var initialDom = (
   <div>

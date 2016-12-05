@@ -3,31 +3,26 @@ var h = require('../../').h;
 exports.tree1 = h(
   'div',
   { id: 'application', className: 'main-app' },
-//  h(
-//    'em',
-//    { className: 'em' },
-//    'Item 1'
-//  ),
-//  h(
-//    'div',
-//    null,
-//    'ffirett'
-//  ),
-//  h(
-//    'div',
-//    { className: '1to-remove' },
-//    'removable div'
-//  ),
+  h(
+    'em',
+    { className: 'em' },
+    'Item 1'
+  ),
+  h(
+    'div',
+    null,
+    'ffirett'
+  ),
   h(
     'div',
     { className: '2to-remove' },
     '2removable div'
   ),
-//  h(
-//    'span',
-//    { className: 'menu-item' },
-//    'Item 1'
-//  ),
+  h(
+    'span',
+    { className: 'menu-item' },
+    'Item 1'
+  ),
   h(
     'ul',
     null,
@@ -65,21 +60,16 @@ exports.tree1 = h(
 exports.tree2 = h(
   'div',
   { id: 'app', className: 'changed-class' },
-//  h(
-//    'span',
-//    { className: 'menu-item' },
-//    'Item 1'
-//  ),
-//  h(
-//    'div',
-//    null,
-//    'ffirett'
-//  ),
-//  h(
-//    'strong',
-//    null,
-//    'sttrong'
-//  ),
+  h(
+    'span',
+    { className: 'menu-item' },
+    'Item 1'
+  ),
+  h(
+    'strong',
+    null,
+    'sttrong'
+  ),
   h(
     'ul',
     { className : 'test test' },
@@ -116,11 +106,6 @@ exports.tree2 = h(
       )
     )
   ),
-//  h(
-//    'div',
-//    { className: 'to-remove' },
-//    'removable div'
-//  ),
   h(
     'div',
     { className: 'to-remove' },

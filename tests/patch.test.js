@@ -11,6 +11,12 @@ var b = require('./fixtures/simple').b;
 var a1 = require('./fixtures/simple').a1;
 var a2 = require('./fixtures/simple').a2;
 
+var f  = require('./fixtures/simple').f;
+var f1 = require('./fixtures/simple').f1;
+
+var tree1 = require('./fixtures/basic').tree1;
+var tree2 = require('./fixtures/basic').tree2;
+
 describe('Test patch()', function() {
   jsdom();
 
@@ -49,6 +55,37 @@ describe('Test patch()', function() {
 
   it('should patch props', function() {
     expect(a1.props.className).to.be.equal(a2.props.className);
+  });
+
+  it('should reorder nested tree', function() {
+    f.render();
+
+    expect(f.children[0].tag).to.be.equal('span');
+    expect(f.children[1].tag).to.be.equal('ul');
+
+    var diffs = diff(f, f1);
+    patch(f, diffs);
+
+    expect(f.children[1].tag).to.be.equal('span');
+    expect(f.children[0].tag).to.be.equal('ul');
+  });
+
+  it('should reorder more complex tree', function() {
+    tree1.render();
+
+    expect(tree1.children[0].tag).to.be.equal('em');
+    expect(tree1.children[1].tag).to.be.equal('div');
+    expect(tree1.children[2].tag).to.be.equal('div');
+    expect(tree1.children[3].tag).to.be.equal('span');
+    expect(tree1.children[4].tag).to.be.equal('ul');
+
+    patch(tree1, diff(tree1, tree2));
+
+    expect(tree1.children[0].tag).to.be.equal('span');
+    expect(tree1.children[1].tag).to.be.equal('strong');
+    expect(tree1.children[2].tag).to.be.equal('ul');
+    expect(tree1.children[3].tag).to.be.equal('div');
+    expect(tree1.children[4]).to.be.a('undefined');
   });
 
 });
