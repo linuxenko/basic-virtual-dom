@@ -1,4 +1,4 @@
-### Simple virtual-dom implementation
+### Very basic virtual-dom implementation
 [![Build Status](https://travis-ci.org/linuxenko/basic-virtual-dom.svg?branch=master)](https://travis-ci.org/linuxenko/basic-virtual-dom) [![Coverage Status](https://coveralls.io/repos/github/linuxenko/basic-virtual-dom/badge.svg?branch=master)](https://coveralls.io/github/linuxenko/basic-virtual-dom?branch=master)
 
 [![Example](https://raw.githubusercontent.com/linuxenko/basic-virtual-dom/master/examples/misc/inspect.gif)](https://raw.githubusercontent.com/linuxenko/basic-virtual-dom/master/examples/misc/inspect.gif)
@@ -56,6 +56,7 @@ setInterval(function() {
   * implement referals
   * event handlers
   * test very deep trees
+  * test browser support
 
 ### License
 MIT (c) Svetlana Linuxenko

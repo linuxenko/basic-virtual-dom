@@ -86,6 +86,16 @@ describe('Test patch()', function() {
     expect(tree1.children[2].tag).to.be.equal('ul');
     expect(tree1.children[3].tag).to.be.equal('div');
     expect(tree1.children[4]).to.be.a('undefined');
+
+    /* tested reordering */
+    expect(tree1.children[2].children[1].children[0].tag).to.be.equal('span');
+    expect(tree1.children[2].children[1].children[1].tag).to.be.equal('div');
+    expect(tree1.children[2].children[1].children[2]).to.be.a('undefined');
+
+  });
+
+  it('should rendered complex tree inners equal', function() {
+    expect(tree1.el.innerHTML).to.be.equal(tree2.render().innerHTML);
   });
 
 });
