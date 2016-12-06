@@ -55,4 +55,16 @@ describe('Test h()', function() {
     expect(empty.children[0].children).to.be.equal('');
     expect(empty.children[0].children).to.be.a('string');
   });
+
+  it('should create nested node text', function() {
+    var node;
+
+    expect(function() {
+      node = h('div', null, h('strong', null, ''), 'L', h('strong', null, 'test'));
+    }).not.throw();
+
+    expect(node.children.length).to.be.equal(3);
+    expect(node.children[1].tag).to.be.equal('text');
+    expect(node.children[1].children).to.be.equal('L');
+  });
 });
