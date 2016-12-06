@@ -149,4 +149,15 @@ describe('Test patch()', function() {
     expect(t.props.a).to.be.equal('b');
     expect(t.el.getAttribute('a')).to.be.equal('b');
   });
+
+  it('should patch complex text nodes sequence', function() {
+    var src = require('../fixtures/textnodes').a;
+    var dst = require('../fixtures/textnodes').b;
+
+    src.render();
+    expect(src.children.length).to.be.equal(1);
+    patch(src, diff(src, dst));
+    expect(src.children.length).to.be.equal(2);
+    expect(src.children[1].children.length).to.be.equal(5);
+  });
 });
