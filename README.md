@@ -52,7 +52,6 @@ setInterval(function() {
 }, 1000);
 ```
 ### TODO
-  * style attribute support
   * test browser support
 
 ### License
