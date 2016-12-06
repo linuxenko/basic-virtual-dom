@@ -160,4 +160,23 @@ describe('Test patch()', function() {
     expect(src.children.length).to.be.equal(2);
     expect(src.children[1].children.length).to.be.equal(5);
   });
+
+  it('should be able patch before render()', function() {
+    var t = h('div', null, '');
+    var p = h('div', { a : 'b' }, h('span', null, 'text'));
+
+    expect(function() { patch(t, diff(t, p)); }).not.throw();
+
+    expect(t.el).to.be.an('undefined');
+    expect(t.children[0].el).to.be.an('undefined');
+    expect(t.children[0].children[0].el).to.be.an('undefined');
+    expect(t.children[0].children[0].children).to.be.equal('text');
+
+    t.render();
+
+    expect(t.el).to.be.instanceof(window.HTMLDivElement);
+    expect(t.children[0].el).to.be.instanceof(window.HTMLSpanElement);
+    expect(t.children[0].children[0].el).to.be.instanceof(window.Text);
+    expect(t.children[0].children[0].children).to.be.equal('text');
+  });
 });
