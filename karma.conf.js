@@ -24,11 +24,6 @@ var browsers = {
     browserName: 'iphone',
     version: '9.3'
   },
-  sl_ios_safari_8: {
-    base: 'SauceLabs',
-    browserName: 'iphone',
-    version: '8.4'
-  },
   sl_android_4_4: {
     base: 'SauceLabs',
     browserName: 'android',
