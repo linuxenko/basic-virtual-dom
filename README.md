@@ -1,8 +1,6 @@
 ### Very basic virtual-dom implementation
 [![Build Status](https://travis-ci.org/linuxenko/basic-virtual-dom.svg?branch=master)](https://travis-ci.org/linuxenko/basic-virtual-dom) [![Coverage Status](https://coveralls.io/repos/github/linuxenko/basic-virtual-dom/badge.svg?branch=master)](https://coveralls.io/github/linuxenko/basic-virtual-dom?branch=master) [![dependencies](https://david-dm.org/linuxenko/basic-virtual-dom.svg)](https://github.com/linuxenko/basic-virtual-dom/) [![alpha](https://img.shields.io/badge/status-alpha-ff69b4.svg)](https://github.com/linuxenko/basic-virtual-dom)
 
-[![Example](https://raw.githubusercontent.com/linuxenko/basic-virtual-dom/master/examples/misc/inspect.gif)](https://raw.githubusercontent.com/linuxenko/basic-virtual-dom/master/examples/misc/inspect.gif)
-
 Experemental implementation of the virtual dom.
 
 ### Features
@@ -15,6 +13,12 @@ Experemental implementation of the virtual dom.
   * Small amount of diffing iterations
   * Referal based patches without identifiers
   * No iterations over the virtual or dom tree when applying patches
+
+
+Seems like it has not so bad memory usage and rendering [performance](https://15lyfromsaturn.github.io/js-repaint-perfs/basic-vitual-dom).
+
+[![Example](https://raw.githubusercontent.com/linuxenko/basic-virtual-dom/master/examples/misc/inspect.gif)](https://15lyfromsaturn.github.io/js-repaint-perfs/basic-virtual-dom)
+
 
 ### Example
 
