@@ -19,7 +19,7 @@ var browsers = {
     browserName: 'MicrosoftEdge',
     platform: 'Windows 10'
   },
-  sl_ios_safari_9: {
+  sl_ios_safari_8: {
     base: 'SauceLabs',
     browserName: 'iphone',
     version: '8.3'
