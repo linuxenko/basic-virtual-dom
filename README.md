@@ -15,9 +15,9 @@ Experemental implementation of the virtual dom.
   * No iterations over the virtual or dom tree when applying patches
 
 
-Seems like it has not so bad memory usage and rendering [performance](https://15lyfromsaturn.github.io/js-repaint-perfs/basic-vitual-dom).
+Seems like it has not so bad memory usage and rendering [performance](https://15lyfromsaturn.github.io/js-repaint-perfs/basic-virtual-dom/index.html)
 
-[![Example](https://raw.githubusercontent.com/linuxenko/basic-virtual-dom/master/examples/misc/inspect.gif)](https://15lyfromsaturn.github.io/js-repaint-perfs/basic-virtual-dom)
+[![Example](https://raw.githubusercontent.com/linuxenko/basic-virtual-dom/master/examples/misc/inspect.gif)](https://15lyfromsaturn.github.io/js-repaint-perfs/basic-virtual-dom/index.html)
 
 
 ### Example
