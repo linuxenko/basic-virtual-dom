@@ -67,4 +67,16 @@ describe('Test h()', function() {
     expect(node.children[1].tag).to.be.equal('text');
     expect(node.children[1].children).to.be.equal('L');
   });
+
+  it('should create nested with text first tree', function() {
+    var node;
+
+    expect(function() {
+      node = h('div', null, '', h('strong', null, 'rrr'), h('strong', null, 'test'));
+    }).not.throw();
+
+    expect(node.children.length).to.be.equal(3);
+    expect(node.children[0].tag).to.be.equal('text');
+    expect(node.children[0].children).to.be.equal('');
+  });
 });
