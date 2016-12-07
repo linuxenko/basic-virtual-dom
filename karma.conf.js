@@ -35,6 +35,7 @@ module.exports = function(config) {
   config.set({
     singleRun: true,
     startConnect: true,
+    concurrency: Infinity,
     frameworks: [
       'mocha',
       'browserify'
