@@ -22,7 +22,7 @@ var browsers = {
   sl_ios_safari_9: {
     base: 'SauceLabs',
     browserName: 'iphone',
-    version: '9.3'
+    version: '8.3'
   },
   sl_android_4_4: {
     base: 'SauceLabs',
