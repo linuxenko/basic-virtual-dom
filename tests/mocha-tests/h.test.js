@@ -79,4 +79,12 @@ describe('Test h()', function() {
     expect(node.children[0].tag).to.be.equal('text');
     expect(node.children[0].children).to.be.equal('');
   });
+
+  it('should handle react like nesting', function() {
+    var Test = h('div', null, 'text');
+    var Result = h('div', null, h(Test, null));
+
+    expect(Result.children[0].tag).to.be.equal('div');
+    expect(Result.children[0].children[0].children).to.be.equal('text');
+  });
 });
