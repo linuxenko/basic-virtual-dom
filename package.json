@@ -1,8 +1,14 @@
 {
   "name": "basic-virtual-dom",
   "version": "0.0.1",
-  "description": "Simple virtual dom implementation",
+  "description": "Basic virtual dom implementation",
   "main": "index.js",
+  "files": [
+    "lib",
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
   "directories": {},
   "dependencies": {},
   "devDependencies": {
@@ -27,9 +33,10 @@
   },
   "keywords": [
     "virtual-dom",
-    "dom",
-    "virtual",
-    "dom"
+    "virual dom",
+    "diff",
+    "patch",
+    "browser"
   ],
   "author": "Svetlana Linuxenko <linuxenko@yahoo.com> (http://www.linuxenko.pro)",
   "license": "MIT",
