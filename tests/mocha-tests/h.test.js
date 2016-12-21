@@ -87,4 +87,22 @@ describe('Test h()', function() {
     expect(Result.children[0].tag).to.be.equal('div');
     expect(Result.children[0].children[0].children).to.be.equal('text');
   });
+
+  it('should render h with falsy childs', function() {
+    expect(function() {
+      h('div', null, null).render();
+      h('div', null, 0).render();
+      h('div', null, '').render();
+      h('div', null, undefined).render();
+    }).not.throw();
+
+    var p = h('div', null, null);
+    expect(p.children).to.be.an('undefined');
+    p = h('div', null, undefined);
+    expect(p.children).to.be.an('undefined');
+    p = h('div', null, '');
+    expect(p.children[0].children).to.be.equal('');
+    p = h('div', null, 0);
+    expect(p.children[0].children).to.be.equal('0');
+  });
 });
