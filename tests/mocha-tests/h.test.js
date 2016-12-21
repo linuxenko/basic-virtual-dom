@@ -105,4 +105,10 @@ describe('Test h()', function() {
     p = h('div', null, 0);
     expect(p.children[0].children).to.be.equal('0');
   });
+
+  it('should render h with nested mixed types', function() {
+    var p = h('button', null, 'Clicked ', 1, null);
+    expect(p.children.length).to.be.equal(2);
+    expect(function() { p.render(); }).not.throw();
+  });
 });
