@@ -111,4 +111,9 @@ describe('Test h()', function() {
     expect(p.children.length).to.be.equal(2);
     expect(function() { p.render(); }).not.throw();
   });
+
+  it('should create boolean props', function() {
+    var p = h('div', null, h('input', { type: 'checkbox', checked: true })).render();
+    expect(p.children[0].getAttribute('checked')).to.be.equal('true');
+  });
 });
