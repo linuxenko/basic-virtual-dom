@@ -118,4 +118,15 @@ describe('Test h()', function() {
     var checkbox = p.childNodes[0];
     expect(checkbox.checked).to.be.true;
   });
+
+  it('should create from arrays of childs', function() {
+    var p = h('div', null ,
+      h('span', null,'child1'),
+      'child2',
+      h('span', null, 'child3'),
+      [ h('div', null, '1'), h('div', null, '2') ]
+    );
+
+    expect(p.children[3].tag).to.be.equal('div');
+  });
 });
