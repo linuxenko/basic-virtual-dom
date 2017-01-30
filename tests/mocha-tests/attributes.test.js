@@ -51,4 +51,47 @@ describe('Test attributes', function() {
     expect(dom.attributes.length).to.be.equal(0);
     expect(dom.props).to.be.an('undefined');
   });
+
+  it('should patch attrs created via dom node', function () {
+    var a = h('div', { onClick: function () {}}, '');
+    var b = h('div', { ref: function () {}, onClick: function () {}} , '');
+
+    var dom = a.render();
+
+    dom.classList.add('active');
+
+    expect(dom.attributes.length).to.be.equal(1);
+    patch(a, diff(a, b));
+
+    expect(dom.attributes.length).to.be.equal(0);
+    expect(Object.keys(a.props).length).to.be.equal(2);
+  });
+
+  it('should patch attrs created via dom node #2', function () {
+    var a = h('div', { onClick: function () {}}, '');
+    var b = h('div', { onClick: function () {}, tabindex: 0} , '');
+
+    var dom = a.render();
+
+    dom.classList.add('active');
+
+    expect(dom.attributes.length).to.be.equal(1);
+    patch(a, diff(a, b));
+
+    expect(dom.attributes.length).to.be.equal(1);
+    expect(dom.attributes[0].name).to.be.equal('tabindex');
+    expect(Object.keys(a.props).length).to.be.equal(2);
+  });
+
+  it('should patch listeners #1', function () {
+    var listener1 = function() { return 1; };
+    var a = h('div', { onClick: listener1}, '');
+    var b = h('div', { onClick: function () { return 2; }, tabindex: 0} , '');
+
+    a.render();
+
+    expect(a.props.onClick()).to.be.equal(1);
+    patch(a, diff(a, b));
+    expect(a.props.onClick()).to.be.equal(2);
+  });
 });

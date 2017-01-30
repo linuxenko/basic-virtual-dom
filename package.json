@@ -1,6 +1,6 @@
 {
   "name": "basic-virtual-dom",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Basic virtual dom implementation",
   "main": "index.js",
   "files": [
