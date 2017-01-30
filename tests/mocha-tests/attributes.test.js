@@ -38,4 +38,17 @@ describe('Test attributes', function() {
     expect(dom.getAttribute('style')).to.be.equal('background-color:#fff;left:20px;');
     expect(a.children[0].props['style']).to.be.equal('right:20px;');
   });
+
+  it('should patch attrs modified via dom node', function () {
+    var a = h('div', null, '');
+    var b = h('div', null, '');
+
+    var dom = a.render();
+
+    dom.classList.add('active');
+    patch(a, diff(a, b));
+
+    expect(dom.attributes.length).to.be.equal(0);
+    expect(dom.props).to.be.an('undefined');
+  });
 });
