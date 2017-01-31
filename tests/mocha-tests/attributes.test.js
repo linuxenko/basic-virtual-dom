@@ -94,4 +94,17 @@ describe('Test attributes', function() {
     patch(a, diff(a, b));
     expect(a.props.onClick()).to.be.equal(2);
   });
+
+  it('should patch replace listeners #2', function () {
+    var fail = false;
+    var listener1 = function() { fail = true; };
+    var a = h('div', { onClick: listener1}, '');
+    var b = h('div', { tabindex: 0} , '');
+
+    var dom = a.render();
+    patch(a, diff(a, b));
+
+    dom.click();
+    expect(fail).to.be.false;
+  });
 });
