@@ -1,6 +1,7 @@
 exports.h     = require('./lib/h').h;
 exports.diff  = require('./lib/diff').diff;
 exports.patch = require('./lib/patch').patch;
+exports.component = require('./lib/component');
 
 exports.PATCH_CREATE  = require('./lib/diff').PATCH_CREATE;
 exports.PATCH_REMOVE  = require('./lib/diff').PATCH_REMOVE;
