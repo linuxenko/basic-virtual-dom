@@ -147,4 +147,20 @@ describe('Test h()', function() {
     expect(cl.children[0].children[0].children).to.be.equal('hello');
     expect(cl.children[0].children[1].children).to.be.equal('world');
   });
+
+  it('should only update props', function() {
+    var Nested = {
+      props: { ownProp: 'keepme' },
+      render: function() {
+        return h('div', null, this.props.name, this.props.children, this.props.ownProp);
+      }
+    };
+
+    var cl = h('div', null, h(Nested, {name: 'hello'}, 'world'));
+
+    expect(cl.children[0].children.length).to.be.equal(3);
+    expect(cl.children[0].children[0].children).to.be.equal('hello');
+    expect(cl.children[0].children[1].children).to.be.equal('world');
+    expect(cl.children[0].children[2].children).to.be.equal('keepme');
+  });
 });
